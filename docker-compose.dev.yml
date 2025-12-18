@@ -1,0 +1,40 @@
+services:
+  linkup-backend:
+    container_name: linkup-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./backend:/app
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - linkup-network
+  
+  linkup-database:
+    container_name: linkup-database
+    image: postgres:18.1-alpine3.23
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:5432"
+    volumes:
+      - linkup-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - linkup-network
+
+
+networks:
+  linkup-network:
+    driver: bridge
+
+volumes:
+  linkup-db-data:
+    driver: local
+    

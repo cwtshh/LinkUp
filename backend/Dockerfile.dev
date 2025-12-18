@@ -1,0 +1,14 @@
+FROM node:25-alpine3.22
+
+WORKDIR /app
+
+COPY package*.json .
+COPY entrypoint.sh ./
+
+RUN chmod +x entrypoint.sh && npm install
+
+COPY . .
+
+ENTRYPOINT ["sh", "./entrypoint.sh"]
+
+CMD ["npm", "run", "dev"]
