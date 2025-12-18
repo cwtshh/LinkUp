@@ -3,6 +3,8 @@ import Home from "./pages/home/Home";
 import BaseLayout from "./components/BaseLayout";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
+import Landing from "./pages/landing/Landing";
 function App() {
   return (
     <BaseLayout>
@@ -10,6 +12,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+
+        <Route element={<ProtectedRoute />}>
+          <Route path="/landing" element={<Landing />} />
+        </Route>
       </Routes>
     </BaseLayout>
   );

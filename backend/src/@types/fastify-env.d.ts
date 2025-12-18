@@ -8,5 +8,6 @@ declare module "fastify" {
       DB_URL: string;
     };
     dataSource: import("typeorm").DataSource;
+    authenticate: any;
   }
 }
