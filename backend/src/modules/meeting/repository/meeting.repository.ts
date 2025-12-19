@@ -27,4 +27,8 @@ export class MeetingRepository {
 
     return this.repository.save(meeting);
   }
+
+  async getMeetByCode(code: string): Promise<Meeting | null> {
+    return this.repository.findOne({ where: { code } });
+  }
 }

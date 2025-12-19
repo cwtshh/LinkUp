@@ -6,7 +6,7 @@ const BaseLayout = ({ children }: { children: React.ReactNode }) => {
     <div className="h-screen flex flex-col w-screen">
       <Header />
 
-      <div className="flex-1 p-6">{children}</div>
+      <div className="flex-1">{children}</div>
     </div>
   );
 };

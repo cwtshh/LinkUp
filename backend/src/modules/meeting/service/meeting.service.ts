@@ -36,4 +36,12 @@ export class MeetingService {
       endsAt
     );
   }
+
+  async getMeetingByCode(code: string) {
+    if (!code) {
+      throw new Error("Code is required.");
+    }
+
+    return this.meetingRepository.getMeetByCode(code);
+  }
 }
