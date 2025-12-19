@@ -5,6 +5,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import ProtectedRoute from "./components/protectedRoute/ProtectedRoute";
 import Landing from "./pages/landing/Landing";
+import Meet from "./pages/meet/Meet";
 function App() {
   return (
     <BaseLayout>
@@ -15,6 +16,7 @@ function App() {
 
         <Route element={<ProtectedRoute />}>
           <Route path="/landing" element={<Landing />} />
+          <Route path="/meet/:meet_code" element={<Meet />} />
         </Route>
       </Routes>
     </BaseLayout>

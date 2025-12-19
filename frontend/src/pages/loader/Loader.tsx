@@ -1,9 +1,8 @@
 import { Spinner } from "@heroui/react";
-import React from "react";
 
 const Loader = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center h-screen">
       <Spinner size="lg" />
     </div>
   );

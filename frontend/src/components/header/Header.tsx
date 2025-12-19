@@ -16,12 +16,28 @@ import { useNavigate } from "react-router";
 import { useAuthStore } from "../../stores/authStore";
 import { IoIosSettings } from "react-icons/io";
 import { IoLogOut } from "react-icons/io5";
+import { useEffect, useState } from "react";
+import { FaCircle } from "react-icons/fa";
 
 const Header = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const user = useAuthStore((state) => state.user);
   const logout = useAuthStore((state) => state.logout);
+  const [now, setNow] = useState<Date>(new Date());
+
+  if (location.pathname.includes("/meet/")) {
+    return null;
+  }
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNow(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Navbar>
@@ -43,6 +59,22 @@ const Header = () => {
       {user && (
         <NavbarItem>
           <div className="flex gap-2 items-center">
+            {/* campo de data */}
+            <div className="flex items-center justify-center gap-3">
+              <p>
+                {now.toLocaleTimeString("pt-BR", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </p>
+              <FaCircle size={5} />
+              <p>
+                {now.toLocaleDateString("pt-BR", {
+                  day: "2-digit",
+                  month: "long",
+                })}
+              </p>
+            </div>
             <Button isIconOnly radius="full">
               <IoIosSettings size={30} />
             </Button>

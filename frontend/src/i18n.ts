@@ -43,6 +43,15 @@ const resources = {
       userCreatedTitle: "User created successfully.",
       userCreationFailedTitle: "User creation failed.",
     },
+    landing: {
+      title: "Video Calls and Meetings for Everyone",
+      subtitle: "Connect with friends, family, and coworkers wherever you are.",
+      newMeeting: "New Meeting",
+      joinByMeetCode: "Enter Meeting Code",
+      joinMeet: "Join Meeting",
+      startMeetingNow: "Start new meeting now",
+      startMeetingLater: "Schedule meeting for later",
+    },
   },
   pt: {
     translation: {
@@ -83,6 +92,16 @@ const resources = {
       passwordsMustMatch: "As senhas devem coincidir",
       userCreatedTitle: "Usuário criado com sucesso.",
       userCreationFailedTitle: "Falha na criação do usuário.",
+    },
+    landing: {
+      title: "Videochamadas e Reuniões para Todos",
+      subtitle:
+        "Conecte-se com amigos, família e colegas de trabalho onde quer que você esteja.",
+      newMeeting: "Nova Reunião",
+      joinByMeetCode: "Digite o Código da Reunião",
+      joinMeet: "Entrar na Reunião",
+      startMeetingNow: "Iniciar nova reunião agora",
+      startMeetingLater: "Agendar reunião para mais tarde",
     },
   },
 };

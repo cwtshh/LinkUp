@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm";
 import { User } from "../../modules/user/model/user.entity";
+import { Meeting } from "../../modules/meeting/model/meeting.entity";
 
 export const createDataSource = (db_url: string): DataSource => {
   if (!db_url) {
@@ -11,7 +12,7 @@ export const createDataSource = (db_url: string): DataSource => {
     url: db_url,
     synchronize: true,
     logging: false,
-    entities: [User],
+    entities: [User, Meeting],
     migrations: [],
     subscribers: [],
   });

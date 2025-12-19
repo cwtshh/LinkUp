@@ -1,6 +1,5 @@
 import { Repository } from "typeorm";
 import { User } from "../model/user.entity";
-import bcrypt, { hash } from "bcryptjs";
 
 export class UserRepository {
   private repository: Repository<User>;

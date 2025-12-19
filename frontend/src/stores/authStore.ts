@@ -13,7 +13,7 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>()((set) => ({
   user: null,
-  loading: false,
+  loading: true,
   login: async (email: string, password: string) => {
     try {
       const response = await AxiosInstance.post("/user/login", {
@@ -42,11 +42,6 @@ export const useAuthStore = create<AuthState>()((set) => ({
       set({ user: response.data.user, loading: false });
     } catch {
       set({ user: null });
-      addToast({
-        title: "Sessão expirada",
-        description: "Por favor, faça login novamente.",
-        color: "danger",
-      });
     } finally {
       set({ loading: false });
     }
